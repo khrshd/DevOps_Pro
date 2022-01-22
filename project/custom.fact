@@ -1,0 +1,4 @@
+[general]
+package = tomcat
+service = tomcat
+state = started
