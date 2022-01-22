@@ -1,0 +1,19 @@
+---
+- hosts: all
+  gather_facts: no
+  vars_files:
+    - vars_files/users.yml
+  tasks:
+    - name: print variables
+      debug:
+        msg: "Username: {{ user }}, Home dir: {{ home }}"
+
+    - name: copy bluejeans on centos7
+      copy:
+        src: BlueJeans_2.17.0.11.rpm
+        dest: /tmp/BlueJeans_2.17.0.11.rpm
+
+    - name: install BlueJeans_2.17.0.11.rpm
+      yum:
+        name: /tmp/BlueJeans_2.17.0.11.rpm
+        state: present

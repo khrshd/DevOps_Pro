@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+  - name: Prints various Ansible facts
+    debug:
+      msg: >
+        The default IPv4 address of {{ ansible_fqdn }}
+        is {{ ansible_default_ipv4.address }} , the storages in the system are {{ ansible_devices.sda.partitions.sda1.size }} , {{ ansible_devices.sda.partitions.sda2.size }} and cd/dvd {{ ansible_devices.sr0.size }}
+
+  - name: Prints various Ansible facts, part 2
+    debug:
+      msg: >
+        The various facts for {{ ansible_fqdn }}
+        are {{ ansible_interfaces }} , the kernel in the system {{ ansible_kernel }}

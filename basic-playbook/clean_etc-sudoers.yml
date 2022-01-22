@@ -1,0 +1,12 @@
+---
+# Cleaning /etc/sudoers from duplicate ansible users
+
+- name: 
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: 
+    copy:
+      dest: /etc/sudoers
+      content: 'ansible ALL=(ALL) NOPASSWD: ALL'
