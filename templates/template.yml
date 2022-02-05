@@ -1,0 +1,19 @@
+---
+- name: Template example
+  hosts: all
+  tasks:
+    - name: Template module to interpolate variables & copy the file
+      template:
+        src: test.sh.j2
+        dest: /tmp/test.sh
+        owner: ansible
+        group: ansible
+        mode: 0755
+
+    - name: Execute the script
+      become: true
+      shell: 
+        /tmp/test.sh
+      register: scroutput
+
+    - debug: var=scroutput.stdout_lines

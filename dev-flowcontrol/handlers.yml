@@ -1,0 +1,81 @@
+---
+- name: Installing MariaDB server 
+  hosts: db 
+  become: yes
+  vars: 
+    db_packages:
+      - mariadb-server
+      - MySQL-python
+    db_service: mariadb 
+    src_file: http://192.168.0.116/home/ansible/main/dev-flowcontrol/my.cnf
+    dst_file: /etc/my.cnf
+    db_user: student
+    db_pass: student123
+    db_name: student_db
+
+  tasks:
+    - name: Install {{ db_packages }} db_package
+      yum: 
+        name: "{{ item }}"
+        state: latest
+      with_items: "{{ db_packages }}"
+      notify: 
+        - start_service
+
+    - name: creating mysql user
+      mysql_user: 
+        name: "{{db_user}}"
+        password: "{{db_pass}}"
+        priv: '*.*:ALL'
+        host: '%'
+        state: present
+
+    - name: creating student_db
+      mysql_db:
+        name: "{{db_name}}"
+        state: present
+
+    - name: Enable remote login to mariadb
+      lineinfile:
+        path: /etc/my.cnf
+        regexp: '^bind-address'
+        line: 'bind-address=0.0.0.0'
+        backup: yes
+      notify:
+        - restart mariadb 
+    
+    - name: Download and install {{ dst_file }}
+      get_url:
+        url: "{{ src_file }}"
+        dest: "{{ dst_file }}"
+        owner: mysql
+        group: mysql 
+        force: yes
+    
+      notify: 
+        - restart_service
+        - set_password
+
+  handlers:
+    - name: start_service 
+      service:
+        name: "{{ db_service }}"
+        state: started 
+
+    - name: restart_service
+      service:
+        name: "{{ db_service }}"
+        state: restarted
+
+    - name: set_password
+      mysql_user:
+        name: root
+        password: redhat
+
+    - name: restart_service
+      service:
+        name: "{{ db_service }}"
+        state: restarted
+
+
+  
