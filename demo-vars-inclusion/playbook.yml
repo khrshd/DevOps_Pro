@@ -1,9 +1,0 @@
----
-- name: Install fileserver packages 
-  hosts: web 
-  tasks:
-    - name: Includes the variable
-      include_vars: package.yml
-
-    - name: Installs the package 
-      include: install_package.yml 
