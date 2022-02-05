@@ -1,0 +1,20 @@
+---
+- name: create apache vhost 
+  hosts: web
+  become: true
+
+  roles:
+    - vhost
+
+  post_tasks:
+    - name: install contents from local file
+      copy:
+        src: files/html/
+        dest: "/var/www/vhosts/{{ ansible_hostname }}"
+      changed_when: true ## This is to forcefully mark a change
+      notify: restart_httpd ## Execute the handler with the name restart_httpd
+      
+    - name: copy the image resource
+      copy:
+        src: files/Blue_marble_2015.jpg
+        dest: "/var/www/vhosts/{{ ansible_hostname }}"

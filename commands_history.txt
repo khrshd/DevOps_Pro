@@ -1,0 +1,224 @@
+history
+    1  ansible all -i ../dy -m ping
+    2  ansible all -i dyn_inv -m ping
+    3  ansible all dyn_inv -m command -a "/bin/yum update -y"
+    4  ansible all -i dyn_inv -m command -a "/bin/yum update -y"
+    5  ansible all -i dyn_inv -m command -a "/bin/yum update -y" -b
+    6  ansible-doc -l
+    7  G
+    8  ansible-playbook basic-playbook/intranet.yml
+    9  ls
+   10  ./script -- list
+   11  ./script --list
+   12  ./dyn_inv --list
+   13  sudo ./dyn_inv --list
+   14  ls /etc/ansible/
+   15  cat /etc/ansible/ansible.cfg 
+   16  ls
+   17  cd .
+   18  cd basic-playbook/
+   19  ls
+   20  ansible-playbook -i ../dyn_inv site.yml --syntax-check
+   21  cd ..
+   22  ls
+   23  pwd
+   24  vi ansible.cfg
+   25  cat ansible.cfg 
+   26  cd basic-playbook/
+   27  LS
+   28  ls
+   29  ansible-playbook site.yml 
+   30  cd ..
+   31  ls
+   32  vi ansible.cfg 
+   33  cd basic-playbook/
+   34  ansible-playbook site.yml 
+   35  cd ..
+   36  cat dyn_inv 
+   37  cat basic-playbook/site.yml 
+   38  ansible * -i dyn_inv -m ping
+   39  ansible all -i dyn_inv -m ping
+   40  vi ansible.cfg 
+   41  cd basic-playbook/
+   42  ansible-playbook site.yml 
+   43  cd ..
+   44  ansible-playbook basic-playbook/site.yml 
+   45  cat ansible.cfg 
+   46  pwd
+   47  cat /etc/ansible/hosts 
+   48  cat ansible.cfg 
+   49  cat dyn_inv 
+   50  ansible-playbook basic-playbook/site.yml 
+   51  cat /etc/ansible/hosts 
+   52  cat dyn_inv 
+   53  ansible-playbook -i dyn_inv basic-playbook/site.yml 
+   54  cat ansible.cfg 
+   55  vi ansible.cfg 
+   56  ansible-playbook basic-playbook/site.yml 
+   57  cd basic-playbook/
+   58  ansible-playbook site.yml 
+   59  cat site.yml 
+   60  ls /etc/ansible/
+   61  cd ..
+   62  ls
+   63  pwd
+   64  ls /etc/ansible/
+   65  ls /home/ansible/
+   66  cat /home/ansible/dyn_inv 
+   67  cat /home/ansible/ansible.cfg 
+   68  ls /etc/ansible/
+   69  cat /etc/ansible/hosts 
+   70  pwd
+   71  ansible-playbook basic-playbook/site.yml 
+   72  cd basic-playbook/
+   73  ansible-playbook site.yml 
+   74  ls
+   75  vi /etc/ansible/hosts 
+   76  sudo vi /etc/ansible/hosts 
+   77  ansible-playbook site.yml 
+   78  cat /etc/ansible/hosts 
+   79  vi site.yml 
+   80  vim site.yml 
+   81  yum install vim 
+   82  sudo yum install vim -y
+   83  cd 
+   84  ls
+   85  vim ~/.vimrc
+   86  cat ~/.vimrc
+   87  vim intranet.yml
+   88  ls
+   89  mv intranet.yml basic-playbook/
+   90  ls
+   91  rm -rf {1..4}.txt
+   92  ls
+   93  ansible-playbook basic-playbook/intranet.yml 
+   94  vim basic-playbook/intranet.yml 
+   95  ansible-playbook basic-playbook/intranet.yml 
+   96  cat basic-playbook/intranet.yml 
+   97  vim basic-playbook/intranet.yml 
+   98  cat basic-playbook/intranet.yml 
+   99  ansible-playbook basic-playbook/intranet.yml 
+  100  ls
+  101  cd main/
+  102  ls
+  103  ansible db -m shell -a "systemctl mariadb status" -b
+  104  ssh 192.168.0.118
+  105  ansible db -m shell -a "curl http://192.168.0.118/etc/my.cnf" -b
+  106  ansible db -m shell -a "cat http://192.168.0.118/etc/my.cnf" -b
+  107  ansible db -m shell -a "cat http://192.168.0.118:/etc/my.cnf" -b
+  108  cd dev-flowcontrol/
+  109  ls
+  110  ansible-playbook playbook.yml --syntax-check
+  111  ansible-playbook playbook.yml 
+  112  ansible db -m shell -a "cat http://192.168.0.118:/etc/mysql/my.cnf" -b
+  113  ansible db -m shell -a "cat http://192.168.0.118:/etc/my.cnf" -b
+  114  ssh 192.168.0.118
+  115  ansible db -m shell -a "cat http://192.168.0.118://etc/my.cnf" -b
+  116  ansible db -m shell -a "curl http://192.168.0.118://etc/my.cnf" -b
+  117  ansible db -m shell -a "get_url http://192.168.0.118://etc/my.cnf" -b
+  118  ansible-playbook playbook.yml 
+  119  ansible-playbook playbook.yml --syntax-check
+  120  sudo scp ansible@192.168.0.118:/etc/my.cnf . 
+  121  ls
+  122  cp my.cnf my.cnf.template
+  123  sudo cp my.cnf my.cnf.template
+  124  ansible-playbook handlers.yml --syntax-check
+  125  ansible-playbook handlers.yml 
+  126  ansible-playbook handlers.yml -b
+  127  ls
+  128  cd templates/
+  129  ls
+  130  pwd
+  131  cd ..
+  132  ls
+  133  ansible-playbook handlers.yml -b
+  134  ls
+  135  pwd
+  136  ansible-playbook handlers.yml -b
+  137  ls /tmp/systemd-private-1b95f3a845c6442aa1648ee2ca22949c-chronyd.service-cHXagE/
+  138  ls
+  139  ansible-playbook handlers.yml -b
+  140  ansible-playbook playbook.yml 
+  141  ansible-playbook handlers.yml -b
+  142  cat /etc/chrony.conf 
+  143  cd ..
+  144  cd templates/
+  145  ls
+  146  ansible-playbook -u ansible -e "DIR=/home/ansible/main FILEEXT=* DAYSOLD=30"
+  147  ansible-playbook template.yml -u ansible -e "DIR=/home/ansible/main FILEEXT=* DAYSOLD=30"
+  148  ansible-playbook template.yml -u ansible -e "DIR=/home/ansible/ FILEEXT=* DAYSOLD=30"
+  149  ansible-playbook template.yml -u ansible -e "DIR=/home/ansible/ FILEEXT=* DAYSOLD=30"ansible --help
+  150  ansible-playbook template.yml -u ansible -e "DIR=/home/ansible/ FILEEXT=* DAYSOLD=30"
+  151  ansible all -m ping
+  152  ls
+  153  cd ..
+  154  ls
+  155  cd dev-flowcontrol/
+  156  ls
+  157  ansible-playbook playbook.yml 
+  158  pwd
+  159  ansible-playbook playbook.yml 
+  160  ansible-playbook playbook.yml -b
+  161  ll
+  162  chown ansible:ansible my.cnf
+  163  sudo chown ansible:ansible my.cnf 
+  164  ansible-playbook playbook.yml -b
+  165  chmod 0755 my.cnf
+  166  ansible-playbook playbook.yml -b
+  167  git push origin main
+  168  ansible-playbook handlers.yml 
+  169  ansible-playbook handlers.yml -b
+  170  ansible-playbook handlers.yml -b -u ansible
+  171  ansible 192.168.0.118 -m ping
+  172  ansible-playbook handlers.yml -b -u ansible
+  173  ansible-playbook handlers.yml -b 
+  174  ssh 192.168.0.118
+  175  ansible-playbook handlers.yml -b 
+  176  cd ..
+  177  ansible-galaxy
+  178  ansible-galaxy search mysql
+  179  cd ~
+  180  pwd
+  181  ls
+  182  cd main/
+  183  ls
+  184  ansible-playbook apache-vhost.yml 
+  185  cd roles/
+  186  ls
+  187  ansible-galaxy install geerlingguy.mysql
+  188  ls
+  189  ls /home/ansible/.ansible/roles/
+  190  ls
+  191  ansible-playbook playbooks/install_database.yml 
+  192  ls
+  193  ansible-playbook playbooks/install_database.yml 
+  194  ls
+  195  ssh 192.168.0.118
+  196  cd vhost/
+  197  ls
+  198  tree
+  199  ls
+  200  ls files/
+  201  cd ..
+  202  ls
+  203  cd ..
+  204  ls
+  205  ls files/
+  206  cd files/
+  207  wget https://upload.wikimedia.org/wikipedia/commons/9/92/Blue_marble_2015.jpg
+  208  sudo wget https://upload.wikimedia.org/wikipedia/commons/9/92/Blue_marble_2015.jpg
+  209  cd ..
+  210  ls
+  211  ansible-playbook apache-vhost.yml 
+  212  cd ..
+  213  ls
+  214  git push origin main
+  215  git add .
+  216  git add --all .
+  217  sudo git add --all .
+  218  sudo git commit -m "all the material used in asnible class"
+  219  git push origin main
+  220  history
+  221  echo "history" >> main/commands_history.txt
+  222  cat main/commands_history.txt 
+  223  history >> main/commands_history.txt
