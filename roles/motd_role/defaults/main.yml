@@ -1,0 +1,2 @@
+--- 
+system_owner: ' {{ inventory_hostname }} '
