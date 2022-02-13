@@ -1,0 +1,7 @@
+---
+  - name: Apache2 setup
+    hosts: web
+    handlers:
+      - include: handlers/handlers.yml
+    roles:
+      - setup-apache
