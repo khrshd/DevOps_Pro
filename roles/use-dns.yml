@@ -1,0 +1,7 @@
+---
+- name: use dns role playbook
+  hosts: all
+  become: true
+
+  roles:
+    - dns
